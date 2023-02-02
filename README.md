@@ -1,5 +1,7 @@
 # before the demo
+```{r klippy, echo=FALSE, include=TRUE}
 brew upgrade eksctl && { brew link --overwrite eksctl; } || { brew tap weaveworks/tap; brew install weaveworks/tap/eksctl; }
+```
 
 ## install cluster eks
 eksctl create cluster -f cluster.yaml
