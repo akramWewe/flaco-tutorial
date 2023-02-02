@@ -1,0 +1,12 @@
+- list: editors
+  items: [vi,nano]
+
+- macro: editor_started
+  condition: (evt.type = execve and proc.name in (editors))
+
+- rule: Text Editor Run by Root
+  desc: the root user opened a text editor
+  condition: editor_started
+  output: the root user started a text editor (cmdline=%proc.cmdline)
+  prioriy: NOTICE
+  tags: [dummy, process, demo]
