@@ -45,17 +45,19 @@ kubectl logs -l app.kubernetes.io/name=falco -n falco  --all-containers
 ## Get default installed driver
 kubectl logs -n falco -l app.kubernetes.io/name=falco -c falco-driver-loader --tail=-1 | grep "* Success"
 
-## Look for the rules (Two rules maximum) installed by default with Falco >> https://github.com/falcosecurity/rules/blob/c558fc7d2d02cc2c2edc968fe5770d544f1a9d55/rules/falco_rules.yaml
+## Look for the rules (Two rules maximum) installed by default with Falco 
+https://github.com/falcosecurity/rules/blob/c558fc7d2d02cc2c2edc968fe5770d544f1a9d55/rules/falco_rules.yaml
 
-# Test first rule -> Split the therminal in two screen
-## Output logs in first terminal
+# Test first rule 
+Split the therminal
+## First terminal: Output logs
 kubectl logs -l app.kubernetes.io/name=falco -n falco -f --all-containers
 
-## In the second terminal, install privileged pod and ssh to it
+## Second terminal: Install privileged pod and ssh to it
 kubectl create -f privileged-pod-1.yaml
 kubectl exec -it test-pod-1 bash -n demo
 
-# Upgrade falco with ebpf  activated & falcosidekick installed
+# Activate ebpf  activated and install falcosidekick
 helm upgrade falco \
   --create-namespace \
   --namespace falco \
@@ -74,14 +76,14 @@ kubectl -n falco get svc
 ## Verify the driver is updated 
 kubectl logs -n falco -l app.kubernetes.io/name=falco -c falco-driver-loader --tail=-1 | grep "* Success" 
 
-## We can test the deployment of Falcosidekick with a typical port forward:
+## Test the deployment of Falcosidekick with a port forward:
 kubectl port-forward svc/falco-falcosidekick-ui -n falco 2802
 
-## Navigate to http://locahost:2802, login:admin & password:admin and watch last events in falcosidekick UI
+## See events with falcosidekick UI
+Navigate to http://locahost:2802, login:admin & password:admin and see last events in falcosidekick UI
 
-# Test Some Threats -->  invoke atomic-read team tests (exec in container atomicred in demo namespace )
-# Details of threats >> https://github.com/redcanaryco/atomic-red-team
-
+# Test Some Threats
+# Details of threats used >> https://github.com/redcanaryco/atomic-red-team
 kubectl exec -ti atomicred-5cc5c7996c-4vgfc -n demo -- /bin/bash
 
 ## Start PowerShell & load the Atomic Red Team module
