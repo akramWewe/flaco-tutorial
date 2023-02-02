@@ -130,7 +130,9 @@ kubectl port-forward svc/falco-falcosidekick-ui -n falco 2802
 Navigate to http://locahost:2802, login:admin & password:admin and see last events in falcosidekick UI
 
 # Test Some Threats
-# Details of threats used >> https://github.com/redcanaryco/atomic-red-team
+
+MITRE ATTACK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations.
+These ATTACKS are represented here: https://github.com/redcanaryco/atomic-red-team/tree/master/atomics
 
 ```{r klippy, echo=FALSE, include=TRUE}
 kubectl exec -ti atomicred-5cc5c7996c-4vgfc -n demo -- /bin/bash
