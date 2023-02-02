@@ -113,9 +113,10 @@ Invoke-AtomicTest T1552.004
 ## Rule : rule The docker client is executed in a container
 Invoke-AtomicTest T1552.007 -GetPreReqs
 
-## Exit for container, SSH to the EC2 node from the console and verify Slack falco-alerts chanel + falcosidekick UI
+## Rule: Test threats present directly in the host
+Exit for container, SSH to the EC2 node from the console and verify Slack falco-alerts chanel + falcosidekick UI
 
-## Optional fo Weshare Rule : Launch Remote File Copy Tools in Container
+## Optional fo Weshare Rule: Launch Remote File Copy Tools in Container
 Invoke-AtomicTest T1105
 
 ## Optional for Wehsare: Rules Falco: Read sensitive file untrusted && Launch Package Management Process in Container && Read environment variable from /proc files
@@ -123,11 +124,11 @@ Invoke-AtomicTest T1059.004 -GetPreReqs
 Invoke-AtomicTest T1059.004
 Invoke-AtomicTest T1059.004 -CleanUp
 
-## Optional Rule Falco: Write below root & Clear Log Activities & Delete Bash History & Modify Shell Configuration File
+## Optional Rules Falco: Write below root and Clear Log Activities and Delete Bash History & Modify Shell Configuration File
 Invoke-AtomicTest T1070.003
 Invoke-AtomicTest T1070.003 -CleanUp
 
-## Optional Rule Falco: Remove Bulk Data from Disk & Write below root & Modify Shell Configuration File & Delete Bash History & Delete or rename shell history && Modify Shell Configuration File
+## Optional Rule Falco: Remove Bulk Data from Disk and Write below root and Modify Shell Configuration File and Delete Bash History  and Delete or rename shell history && Modify Shell Configuration File
 Invoke-AtomicTest T1070.004   
 Invoke-AtomicTest T1070.004 -CleanUp
 
@@ -163,8 +164,8 @@ See event in Slack (Falco-alerts + falcosidekick UI)
 
 # Intall plugin https://github.com/falcosecurity/plugins/tree/master/plugins/github
 
-## Try to install plugin k8saudit // Rules for 
-## Look to rules k8s audit >>
+## Try to install plugin k8saudit
+## Look to rules k8s audit
 ## https://github.com/falcosecurity-retire/falco-security-workshop/blob/master/exercise2/k8s-using-daemonset/k8s-with-rbac/falco-config/k8s_audit_rules.yaml
 ## Look to values-k8saudit.yaml (two rules maximum) and the value plugins file
 
