@@ -74,6 +74,7 @@ kubectl logs -n falco -l app.kubernetes.io/name=falco -c falco-driver-loader --t
 ## Look for the rules (Two rules maximum) installed by default with Falco 
 https://github.com/falcosecurity/rules/blob/c558fc7d2d02cc2c2edc968fe5770d544f1a9d55/rules/falco_rules.yaml
 
+
 # Test first rule 
 Split the therminal
 ## First terminal: Output logs
